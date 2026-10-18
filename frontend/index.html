@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>GeminiChat</title>
+
+    <!-- ===== FONTS  ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- PURIFY & MARKDOWN SCRIPTS HASHED -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/dompurify@3.4.12/dist/purify.min.js"
+      integrity="sha256-xFupOXZVdPlsvzXum22J9zdWoXkhgUQl50uC98VGA84="
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/marked@18.0.6/lib/marked.umd.min.js"
+      integrity="sha384-1DYHBgZ9bqWhQdbNJYAgtRGPTREOhdqe9pMai6XZ6lEOxEpf8014NcYGxp62VGbv"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- ===== STYLES & SCRIPT  ===== -->
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/queries.css" />
+    <script defer src="js/script.js"></script>
+  </head>
+  <body>
+    <header class="header"></header>
+    <main>
+      <section class="section-conversation">
+        <picture>
+          <!-- TODO: -->
+          <!-- Phones: ALWAYS the square crop, no matter the DPR -->
+          <!-- <source media="(max-width: 34em)" srcset="img/hero-mobile.webp" /> -->
+          <!-- Tablets & desktop: the wide image -->
+          <img
+            src="img/mainpage_background.webp"
+            alt="Hero page with galaxy background"
+            class="hero-img"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
+        <div class="container hero-container">
+          <h1 class="heading-primary center-text">NeroTech AI API</h1>
+          <div class="chat-container">
+            <div class="chat-history"></div>
+            <form class="input-div">
+              <input
+                class="prompt-text"
+                type="text"
+                placeholder="Prompt the ai"
+              />
+              <button
+                class="btn send-prompt-btn"
+                type="submit"
+                aria-label="Send message"
+              >
+                <svg
+                  class="send-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 640 640"
+                  width="24"
+                  height="24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M439.1 297.4C451.6 309.9 451.6 330.2 439.1 342.7L279.1 502.7C266.6 515.2 246.3 515.2 233.8 502.7C221.3 490.2 221.3 469.9 233.8 457.4L371.2 320L233.9 182.6C221.4 170.1 221.4 149.8 233.9 137.3C246.4 124.8 266.7 124.8 279.2 137.3L439.2 297.3z"
+                  />
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer"></footer>
+  </body>
+</html>

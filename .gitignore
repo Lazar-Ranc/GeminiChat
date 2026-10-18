@@ -1,0 +1,22 @@
+# Build output (.NET), for every project: backend/ and tests/
+bin/
+obj/
+
+# Results written by `dotnet test` when a logger or coverage is enabled
+TestResults/
+
+# Logs written by the API (Serilog file sink) and saved console output
+logs/
+*.log
+
+# Local REST client requests: personal test data, not part of the project
+backend/RestClientCalls.http
+
+# IDE and OS files (.vscode/settings.json stays in the repo on purpose: it configures Live Server)
+.vs/
+.idea/
+*.user
+*.suo
+.DS_Store
+
+.claude/

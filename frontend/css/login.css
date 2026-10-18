@@ -1,0 +1,162 @@
+.section-login {
+  background-color: var(--color-bg-light);
+  /* padding: 0rem 0 9.6rem 0; */
+}
+
+.login-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding-top: 9.6rem; */
+  position: relative; /* KEEP — the img and ::before position against this */
+  color: var(--color-text-main);
+}
+.login-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(var(--rgb-overlay), 0.7) 0%,
+      transparent 5%
+    ),
+    linear-gradient(to top, rgba(var(--rgb-overlay), 0.95) 0%, transparent 10%),
+    linear-gradient(
+      90deg,
+      rgba(var(--rgb-overlay), 0.85) 0%,
+      rgba(var(--rgb-overlay), 0.2) 20%
+    );
+}
+.login-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; /* default, overridden by the media queries above */
+  z-index: 0;
+}
+
+.login-form {
+  max-width: 64rem;
+  padding: 2.4rem;
+  z-index: 2; /* above img (0) and ::before (1) */
+}
+
+/* 1. Card Background: Deep Midnight Navy */
+.form-group-container {
+  /* Using the RGB variable to maintain the 85% opacity glass effect */
+  background-color: rgba(var(--rgb-navy), 0.85);
+  padding: 2.4rem 3.6rem;
+  margin: 0 3.2rem;
+  border-radius: 12px;
+  width: calc(100% - 6.4rem); /* 100% minus the left and right margins */
+  max-width: 48rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+
+  /* 4. Text: Pure White */
+  color: var(--color-text-main);
+  z-index: 2; /* Ensure the form is above the background */
+}
+
+.form-heading {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 4.8rem;
+  text-align: center;
+}
+
+.form-subheading {
+  font-size: 1.6rem;
+  /* margin-bottom: 4rem; */
+  color: var(
+    --color-text-muted
+  ); /* A soft, muted blue-grey for secondary text */
+  margin-bottom: 2.4rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.6rem;
+  /* text-align: left; */
+  text-align: center; /* Center align the form elements */
+}
+
+.form-label {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+
+  /* 3. Accent: Bright Cyan */
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* 2. Header/Secondary Section: Rich Dark Teal */
+.form-input {
+  width: 100%;
+  padding: 1.2rem 1.6rem;
+  background-color: var(--color-surface-teal); /* Used for the input fields */
+  border: 1px solid var(--color-surface-teal);
+  border-radius: 6px;
+  color: var(--color-text-main);
+  outline: none;
+  font-size: 1.4rem;
+  transition: border-color 0.3s ease;
+  margin-bottom: 1.6rem;
+}
+
+.form-group:last-of-type {
+  margin-bottom: 4.8rem;
+}
+
+/* Focus state for inputs */
+.form-input:focus {
+  border-color: var(--color-primary);
+}
+
+/* 3. Button/Accent: Bright Cyan */
+.login-btn {
+  width: 100%;
+  padding: 1.4rem;
+  /* background-color: var(--color-primary); */
+
+  /* Using the Navy for text here so it pops against the cyan */
+  /* color: var(--color-surface-navy); */
+  border: none;
+  border-radius: 6px;
+
+  /* font-size: 1.6rem; */
+  /* font-weight: 600; */
+  /* cursor: pointer; */
+  /* transition: */
+  /* background-color 0.3s ease, */
+  /* transform 0.1s ease; */
+  margin-bottom: 1.6rem;
+}
+
+.login-btn:hover,
+.login-btn:active {
+  transform: scale(0.98); /* Button click effect */
+}
+
+.login-btn:active {
+  /* transform: scale(0.98); */
+}
+
+.login-message {
+  color: var(--color-error); /* reddish — signals error */
+  font-size: 1.6rem;
+  min-height: 1.6rem; /* holds space even when empty, so layout doesn't shift */
+  text-align: center;
+  visibility: hidden; /* hidden but STILL takes up space */
+}
+.login-message.show {
+  visibility: visible;
+}

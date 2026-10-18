@@ -1,0 +1,19 @@
+{
+  // Live Server reloads the page whenever a file in the workspace changes.
+  // The API writes a log file on every request (backend/logs), and builds write to bin/obj,
+  // so without this the chat page reloads after every message.
+  // The first four entries are Live Server's defaults, which this setting replaces.
+  "liveServer.settings.ignoreFiles": [
+    ".vscode/**",
+    "**/*.scss",
+    "**/*.sass",
+    "**/*.ts",
+    "backend/**",
+    "tests/**"
+  ],
+
+  // ASP.NET Core allows // comments in appsettings files; tell VS Code so it doesn't flag them as errors.
+  "files.associations": {
+    "appsettings*.json": "jsonc"
+  }
+}

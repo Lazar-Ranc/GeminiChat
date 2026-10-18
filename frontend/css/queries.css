@@ -1,0 +1,12 @@
+/**************************/
+/* BELOW 415px (Mobile) */
+/**************************/
+@media (max-width: 26em) {
+  .form-group-container {
+    padding: 1.6rem 3.6rem;
+  }
+
+  .login-form {
+    padding: 0rem;
+  }
+}

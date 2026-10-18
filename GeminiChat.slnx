@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/backend/">
+    <Project Path="backend/GeminiChat.Api.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/GeminiChat.Api.Tests/GeminiChat.Api.Tests.csproj" />
+  </Folder>
+</Solution>

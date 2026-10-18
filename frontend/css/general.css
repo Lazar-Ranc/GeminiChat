@@ -1,0 +1,226 @@
+/*
+--- 01 TYPOGRAPHY SYSTEM
+
+- Font family:
+"Libre Franklin", "Franklin Gothic Book", "Franklin Gothic Medium",
+"Helvetica Neue", Helvetica, Arial, sans-serif
+(Libre Franklin is loaded from Google Fonts in index.html)
+
+- Font sizes (rem):
+1.4 / 1.6 / 2.4
+Primary heading: clamp(32px, 22.9px + 2.42vw, 60px) (fluid, 3.2rem to 6rem)
+
+- Font weights:
+Default: 400
+Semi-bold: 600 (buttons, form labels)
+Bold: 700 (headings)
+
+- Line heights:
+Default: 1
+Primary heading: 1.15
+
+- Letter spacing:
+Headings: -0.5px
+Form labels: 1px (uppercase)
+
+--- 02 COLORS (custom properties in :root below)
+
+- Accent (cyan):
+#1bd4c9 --color-primary (primary heading, buttons, form labels, input focus border)
+#15b3a9 --color-primary-hover (button hover)
+
+- Surfaces:
+#f5f5f5 --color-bg-light (login section, behind the background image)
+#131c26 --color-surface-navy (button text)
+#0f4752 --color-surface-teal (input fields, user message bubbles)
+
+- Text:
+#ffffff --color-text-main (all text on the dark panels)
+#a0b2c6 --color-text-muted (login subheading)
+#555 (body default)
+
+- Utility:
+#ff6b6b --color-error (login error message)
+
+- RGB values (for opacity with rgba):
+19, 28, 38 --rgb-navy (chat panel and login card at 0.85)
+13, 13, 14 --rgb-overlay (gradient overlay on the login image)
+
+- Focus ring:
+rgba(42, 157, 143, 0.5) (#2a9d8f, not one of the tokens above)
+
+--- 03 SHADOWS
+
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);         (chat panel, login card — paired with backdrop-filter: blur(5px))
+box-shadow: 0 0 0 0.8rem rgba(42, 157, 143, 0.5);  (keyboard focus ring)
+box-shadow: 0 0 0 0.4rem rgba(42, 157, 143, 0.5);  (.footer-link focus ring)
+
+--- 04 BORDER-RADIUS
+
+Panels and bubbles: 12px (chat panel, messages, login card)
+Code blocks: 8px
+Inputs and login button: 6px
+Inline code: 4px
+Send button: 50% (circle)
+Footer link focus: 9px
+
+--- 05 PAGE HEIGHTS (vertical)
+
+Both pages fill the viewport, so there is no section padding:
+Chat page: .hero-container 100vh, .chat-container 85% of it
+Login page: .login-container 100vh, login card centered with flexbox
+
+--- 06 CONTAINER WIDTHS AND GUTTERS (horizontal)
+
+.container: max-width 120rem, padding 0 3.2rem
+.chat-container: max-width 80rem, padding 2.4rem 3.6rem
+.chat-history: max-width 80rem, padding 1.6rem
+.message: max-width 75%  (bubbles never span the full width)
+.login-form: max-width 64rem, padding 2.4rem
+.form-group-container: max-width 48rem, margin 0 3.2rem, padding 2.4rem 3.6rem  (login card)
+
+--- 07 BREAKPOINTS (queries.css — em-based, always 16px regardless of html font-size)
+
+26em = 416px  (mobile — login card padding 1.6rem 3.6rem, form padding 0)
+
+--- 08 WHITESPACE
+
+- Spacing system (px)
+Main: 8 / 12 / 16 / 24 / 32 / 36 / 48
+One-offs: 2 / 4 / 5 / 6 / 10 / 14 / 18 / 20
+*/
+
+:root {
+  /* Accents */
+  --color-primary: #1bd4c9;
+  --color-primary-hover: #15b3a9;
+
+  /* Surfaces */
+  --color-bg-light: #f5f5f5;
+  --color-surface-navy: #131c26;
+  --color-surface-teal: #0f4752;
+
+  /* Text */
+  --color-text-main: #ffffff;
+  --color-text-muted: #a0b2c6;
+
+  /* Utility */
+  --color-error: #ff6b6b;
+
+  /* RGB Values (Allows you to easily add opacity using rgba) */
+  --rgb-navy: 19, 28, 38; /* Corresponds to #131C26 */
+  --rgb-overlay: 13, 13, 14; /* Corresponds to #0D0D0E */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  /* font-size: 10px; */
+  /* 10px / 16px = 0.625 = 62.5% */
+  /* Percentage of user's browser font-size setting */
+  font-size: 62.5%;
+
+  /* for some reason needs to be on both html and body */
+  overflow-x: hidden;
+
+  /* Does NOT work on Safari and Microsoft edge,
+   maybe it does after 2021 */
+  /* scroll-behavior: smooth; */
+}
+
+body {
+  /* font-family: "Archivo", sans-serif; */
+  font-family:
+    "Libre Franklin", "Franklin Gothic Book", "Franklin Gothic Medium",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+  /* evey element that overflows x axis will be hidden: */
+  /* Only works if there is nothing absolutily position in relation to body */
+  overflow-x: hidden;
+}
+
+/* ******************************************** */
+/* GENERAL REUSABLE COMPONENTS */
+/* ******************************************** */
+
+.container {
+  /* 1114px some convention usually used */
+  max-width: 120rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+.heading-primary {
+  font-size: clamp(32px, 22.9px + 2.42vw, 60px);
+  color: var(--color-primary);
+  line-height: 1.15;
+  margin-bottom: 1.8rem;
+}
+
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 600;
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.1s ease;
+  background-color: var(--color-primary);
+  color: var(--color-surface-navy);
+  font-family: inherit;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: var(--color-primary-hover);
+}
+
+/* this is great for keyboard users */
+/* NEW — keyboard only, everywhere */
+*:focus {
+  outline: none; /* still suppress the default browser outline */
+}
+
+*:focus-visible {
+  box-shadow: 0 0 0 0.8rem rgba(42, 157, 143, 0.5);
+}
+
+.footer-link:focus-visible {
+  border-radius: 9px;
+  box-shadow: 0 0 0 0.4rem rgba(42, 157, 143, 0.5); /* smaller, rounded, fits the icons */
+}
+
+/* HELPER/SETTINGS CLASSES */
+.margin-right-sm {
+  margin-right: 1.6rem !important;
+}
+
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.margin-bottom-0 {
+  margin-bottom: 0;
+}

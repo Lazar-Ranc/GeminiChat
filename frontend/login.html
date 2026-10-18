@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <!-- ===== FONTS ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ===== STYLES  & SCRIPT ===== -->
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/queries.css" />
+    <script defer src="js/login.js"></script>
+  </head>
+  <body>
+    <main>
+      <section class="section-login">
+        <div class="login-container">
+          <picture>
+            <!-- Phones: ALWAYS the square crop, no matter the DPR -->
+            <!-- <source media="(max-width: 34em)" srcset="img/hero-mobile.webp" /> -->
+            <!-- Tablets & desktop: the wide image -->
+            <img
+              src="img/login_background.webp"
+              alt="Login page with galaxy background"
+              class="login-img"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </picture>
+          <div class="form-group-container">
+            <h2 class="form-heading">Welcome Back</h2>
+            <p class="form-subheading">Access your stellar dashboard.</p>
+            <form class="login-form" autocomplete="off">
+              <div class="form-group">
+                <label for="Username" class="form-label">Username</label>
+                <input
+                  id="name"
+                  name="name"
+                  class="form-input"
+                  placeholder="Username"
+                  type="text"
+                  required
+                  minlength="2"
+                  maxlength="50"
+                />
+              </div>
+              <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input
+                  id="password"
+                  name="password"
+                  class="form-input"
+                  placeholder="Password"
+                  type="Password"
+                  required
+                  maxlength="254"
+                  title="Please enter your password"
+                />
+              </div>
+
+              <button class="btn login-btn" type="submit">Log in</button>
+              <!-- empty now, filled on error -->
+              <p class="login-message">No Bueno mi Amigo.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
